@@ -1,0 +1,167 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/misc/light/light.png" type="Texture" id=1]
+[ext_resource path="res://pckScenes/guns/gun-2/gun.png" type="Texture" id=2]
+[ext_resource path="res://assets/misc/light/spot.png" type="Texture" id=3]
+[ext_resource path="res://pckScenes/guns/gun-2/2.gd" type="Script" id=4]
+[ext_resource path="res://assets/sfx/155790__deleted-user-1941307__shipboard-railgun.mp3" type="AudioStream" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "GunFiring"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Gun:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.4, 0.5 ),
+"transitions": PoolRealArray( 0.225313, 0.225313 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -2, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MuzzleFlash:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MuzzleFlash/Flash:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2, 0.5 ),
+"transitions": PoolRealArray( 0.5, 0.5 ),
+"update": 0,
+"values": [ Color( 0, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("MuzzleFlash/Flash:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 0.5, 0.2 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("MuzzleFlash/Flash:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -12, 0 ), Vector2( 10.4, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("MuzzleFlash:energy")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.5, 5.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Gun:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MuzzleFlash:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MuzzleFlash/Flash:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 1, 1, 0 ), Color( 0, 1, 1, 0 ) ]
+}
+
+[node name="Gun2" type="Node2D" groups=[
+"2",
+]]
+scale = Vector2( 2.5, 2.5 )
+script = ExtResource( 4 )
+
+[node name="Gun" type="Sprite" parent="."]
+position = Vector2( -0.199819, 0 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_process_mode = 0
+anims/GunFiring = SubResource( 1 )
+anims/ScopeMovement = SubResource( 2 )
+
+[node name="MuzzleFlash" type="Light2D" parent="."]
+position = Vector2( 18.4, 0.4 )
+enabled = false
+texture = ExtResource( 1 )
+color = Color( 0, 0.0392157, 0.607843, 1 )
+energy = 0.605469
+shadow_enabled = true
+
+[node name="Flash" type="Sprite" parent="MuzzleFlash"]
+modulate = Color( 0.0207248, 1, 1, 0.0207248 )
+self_modulate = Color( 0.0117647, 0.215686, 0.843137, 1 )
+position = Vector2( -11.7667, 0 )
+scale = Vector2( 0.00521822, 0.00209323 )
+texture = ExtResource( 3 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 15.2632, 0.51282 )
+
+[node name="FX" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 14.8, 0.4 )
+stream = ExtResource( 5 )
+volume_db = 5.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
