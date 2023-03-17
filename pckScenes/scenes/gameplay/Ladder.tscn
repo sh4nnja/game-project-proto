@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 24, 119 )
+
+[node name="Ladder" type="Node2D"]
+position = Vector2( 392, 0 )
+
+[node name="range" type="Area2D" parent="." groups=[
+"ladderMid",
+]]
+position = Vector2( 703, 613 )
+
+[node name="shape" type="CollisionShape2D" parent="range"]
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}

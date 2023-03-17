@@ -1,0 +1,1281 @@
+[gd_scene load_steps=54 format=2]
+
+[ext_resource path="res://scenes/scnFx/transition/ScnTransition.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/gameplay/Gameplay.gd" type="Script" id=2]
+[ext_resource path="res://assets/misc/Platform.png" type="Texture" id=3]
+[ext_resource path="res://assets/sfx/Sound Effects - Pistol Equip.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/sfx/Gun-Cocking-www.fesliyanstudios.com.mp3" type="AudioStream" id=5]
+[ext_resource path="res://map/Background2.png" type="Texture" id=6]
+[ext_resource path="res://pckScenes/dummies/dummy2/Dummy2.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/misc/light/light.png" type="Texture" id=8]
+[ext_resource path="res://map/Dirt.png" type="Texture" id=9]
+[ext_resource path="res://map/assets/Skelly2.png" type="Texture" id=10]
+[ext_resource path="res://map/assets/Skelly.png" type="Texture" id=11]
+[ext_resource path="res://map/assets/chair.png" type="Texture" id=12]
+[ext_resource path="res://map/assets/Piskel_frame-1.png" type="Texture" id=13]
+[ext_resource path="res://map/assets/Piskel_frame-2.png" type="Texture" id=14]
+[ext_resource path="res://map/assets/Barrel2.png" type="Texture" id=15]
+[ext_resource path="res://map/assets/Barrel.png" type="Texture" id=16]
+[ext_resource path="res://map/assets/Zombie.png" type="Texture" id=17]
+[ext_resource path="res://assets/misc/tvStatic.png" type="Texture" id=18]
+[ext_resource path="res://scenes/scnFx/performance/perf.tscn" type="PackedScene" id=19]
+[ext_resource path="res://pckScenes/door/Door.tscn" type="PackedScene" id=20]
+[ext_resource path="res://pckScenes/dummies/dummy2/Dummy2a.tscn" type="PackedScene" id=21]
+[ext_resource path="res://assets/fonts/Coolville.ttf" type="DynamicFontData" id=22]
+[ext_resource path="res://scenes/gameplay/pauseMode.gd" type="Script" id=23]
+[ext_resource path="res://scenes/mainmenu/assets/Background.png" type="Texture" id=24]
+[ext_resource path="res://assets/misc/enemyInfo/timer.png" type="Texture" id=25]
+[ext_resource path="res://assets/misc/enemyInfo/enemy.png" type="Texture" id=26]
+[ext_resource path="res://assets/misc/enemyInfo/waves.png" type="Texture" id=27]
+[ext_resource path="res://pckScenes/tasks/Tasks.tscn" type="PackedScene" id=28]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+
+[sub_resource type="CanvasItemMaterial" id=2]
+
+[sub_resource type="OccluderPolygon2D" id=3]
+polygon = PoolVector2Array( 1188, 396, 1188.01, 378, 1188, 354, 1587, 354, 1572, 370, 1194, 372, 1193.96, 378, 1587, 378, 1587, 216, 912, 216, 912, 81.2864, 584, 68, 912, 69, 969, 0, 1587, 0, 2298, 0, 2355, 65, 2650, 65, 2355, 86.6399, 2355, 216, 1683, 216, 1683, 332.965, 1806, 333, 1839, 300, 1839, 222, 2382, 222, 2439, 279, 2439, 438, 1683, 438, 1683, 663, 1794, 663, 1812, 645, 1812, 486, 1857, 441, 2445, 441, 2445, 768, 1107, 768, 1107, 582, 981, 582, 981, 378, 1128, 378, 1128, 372, 1032, 372, 1032, 218, 1047, 216, 1047, 354, 1134, 354, 1134, 396, 996, 396, 996, 564, 1134, 564, 1134, 582, 1122, 582, 1122, 750, 1587.12, 750.104, 1587, 582, 1188, 582, 1188, 564, 1602, 564, 1601.98, 750.108, 2439, 750.29, 2439, 454, 1866, 456, 1827, 495, 1827, 657, 1803, 681, 1668, 681, 1668, 420, 2424, 420, 2424, 291, 2368, 234, 1854, 233, 1854, 312, 1815, 351, 1668, 351, 1668, 199, 2340, 198, 2340, 69, 2283, 12, 1770.26, 12, 1770, 104, 1756, 104, 1755.99, 12, 1511.04, 12, 1511, 104, 1497, 104, 1497, 12, 984, 12, 927, 69, 927, 198, 1602, 198, 1602, 396 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 24, 312 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 24, 212 )
+
+[sub_resource type="CanvasItemMaterial" id=6]
+light_mode = 2
+
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0.0290698, 0.925 ), 0.0, 2.58, 0, 0, Vector2( 0.994186, 0.0909091 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Animation" id=8]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 0.120742, 0.120742, 0.120742, 0.120742, 0.120742, 0.120742 ),
+"update": 0,
+"values": [ 1.4, 1.5, 1.4, 1.5, 1.4, 1.3 ]
+}
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 26, 48 )
+
+[sub_resource type="Animation" id=10]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.5, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Screens:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2, 0.8 ),
+"transitions": PoolRealArray( 0.225313, 0.225313 ),
+"update": 0,
+"values": [ 0.5, 0.4 ]
+}
+
+[sub_resource type="Animation" id=11]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sun:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2, 0.8 ),
+"transitions": PoolRealArray( 1.2, 1.2 ),
+"update": 0,
+"values": [ 1.0, 1.7 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sun2:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2, 0.8 ),
+"transitions": PoolRealArray( 1.2, 1.2 ),
+"update": 0,
+"values": [ 1.0, 1.7 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sun3:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2, 0.8 ),
+"transitions": PoolRealArray( 1.2, 1.2 ),
+"update": 0,
+"values": [ 1.0, 1.7 ]
+}
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 29.4384, 59.3852 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 300, 100 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 18 )
+region = Rect2( 0, 0, 32, 16 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 18 )
+region = Rect2( 0, 16, 32, 16 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 18 )
+region = Rect2( 0, 32, 32, 16 )
+
+[sub_resource type="SpriteFrames" id=17]
+animations = [ {
+"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[sub_resource type="StyleBoxFlat" id=18]
+bg_color = Color( 1, 0, 0, 1 )
+corner_radius_bottom_right = 25
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id=19]
+bg_color = Color( 0, 0, 0, 0.313726 )
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id=20]
+bg_color = Color( 0, 0, 0, 0.313726 )
+corner_radius_top_right = 24
+corner_detail = 1
+
+[sub_resource type="DynamicFont" id=21]
+size = 40
+font_data = ExtResource( 22 )
+
+[sub_resource type="DynamicFont" id=22]
+size = 20
+font_data = ExtResource( 22 )
+
+[sub_resource type="Animation" id=23]
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Paused:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="StyleBoxEmpty" id=24]
+
+[sub_resource type="DynamicFont" id=25]
+size = 40
+font_data = ExtResource( 22 )
+
+[node name="Gameplay" type="Node"]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_horizontal_guides_": [ -19.0 ]
+}
+
+[node name="Transition" parent="." instance=ExtResource( 1 )]
+
+[node name="CanvasModulate" parent="Transition" index="1"]
+visible = true
+
+[node name="Left" parent="Transition" index="2"]
+visible = false
+position = Vector2( 480, 304 )
+
+[node name="Right" parent="Transition" index="3"]
+visible = false
+position = Vector2( 544, 304 )
+
+[node name="Load" parent="Transition/Right" index="0"]
+frame = 10
+
+[node name="light" parent="Transition/Right/Load" index="0"]
+visible = true
+light_mask = 1
+enabled = true
+energy = 1.5
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 768, 384 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="GameplayNodes" type="Node2D" parent="."]
+
+[node name="DirtNodes" type="Node2D" parent="GameplayNodes"]
+z_index = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="City" type="Sprite" parent="GameplayNodes/DirtNodes"]
+material = SubResource( 1 )
+position = Vector2( 732, -183 )
+scale = Vector2( 16.0625, 10 )
+z_index = -2
+texture = ExtResource( 24 )
+
+[node name="Dirt" type="Sprite" parent="GameplayNodes/DirtNodes"]
+material = SubResource( 2 )
+position = Vector2( 732, 563 )
+scale = Vector2( 1.6976, 1.37778 )
+z_index = -1
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1250, 720 )
+
+[node name="Skelly" type="Sprite" parent="GameplayNodes/DirtNodes"]
+position = Vector2( -39, 507 )
+rotation = -0.486661
+scale = Vector2( 2.50225, 2.43639 )
+texture = ExtResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Skelly2" type="Sprite" parent="GameplayNodes/DirtNodes"]
+position = Vector2( 829, 587 )
+rotation = 0.786268
+scale = Vector2( 2, 2 )
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Skelly3" type="Sprite" parent="GameplayNodes/DirtNodes"]
+position = Vector2( -108, 127 )
+rotation = 0.99285
+scale = Vector2( 2.4416, 2.49717 )
+texture = ExtResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Skelly4" type="Sprite" parent="GameplayNodes/DirtNodes"]
+position = Vector2( 1618, 160 )
+rotation = -1.92012
+scale = Vector2( 2.41994, 2.51816 )
+texture = ExtResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Skelly5" type="Sprite" parent="GameplayNodes/DirtNodes"]
+position = Vector2( 591, 768 )
+rotation = 0.99285
+scale = Vector2( 2.4416, 2.49717 )
+texture = ExtResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Skelly6" type="Sprite" parent="GameplayNodes/DirtNodes"]
+position = Vector2( 1462, 122 )
+rotation = -1.92012
+scale = Vector2( 2.41994, 2.51816 )
+texture = ExtResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Skelly7" type="Sprite" parent="GameplayNodes/DirtNodes"]
+position = Vector2( 1098, 896 )
+rotation = -0.941261
+scale = Vector2( 2.44746, 2.49143 )
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Chair" type="Sprite" parent="GameplayNodes/DirtNodes"]
+position = Vector2( 905.53, 368.781 )
+rotation = 2.43713
+scale = Vector2( 2.4765, 2.46257 )
+texture = ExtResource( 12 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Frame" type="Sprite" parent="GameplayNodes/DirtNodes"]
+position = Vector2( 779, 443 )
+rotation = -2.85708
+scale = Vector2( 2.52069, 2.41731 )
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Frame2" type="Sprite" parent="GameplayNodes/DirtNodes"]
+position = Vector2( 1433, 796 )
+rotation = -1.12376
+scale = Vector2( 2.4282, 2.5102 )
+texture = ExtResource( 14 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Barrel" type="Sprite" parent="GameplayNodes/DirtNodes"]
+position = Vector2( 1633, 432 )
+rotation = -0.99285
+scale = Vector2( 2.4416, 2.49717 )
+texture = ExtResource( 16 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Barrel2" type="Sprite" parent="GameplayNodes/DirtNodes"]
+position = Vector2( 1273, 887 )
+rotation = 0.863468
+scale = Vector2( 2.45673, 2.48229 )
+texture = ExtResource( 15 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Barrel3" type="Sprite" parent="GameplayNodes/DirtNodes"]
+position = Vector2( 138, 795 )
+rotation = 0.863468
+scale = Vector2( 2.45673, 2.48229 )
+texture = ExtResource( 15 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Barrel4" type="Sprite" parent="GameplayNodes/DirtNodes"]
+position = Vector2( 13.0001, 323 )
+rotation = 0.609583
+scale = Vector2( 2.48815, 2.45079 )
+texture = ExtResource( 16 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Zombie" type="Sprite" parent="GameplayNodes/DirtNodes"]
+position = Vector2( 793, 850 )
+rotation = 0.888373
+scale = Vector2( 3, 3 )
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Zombie" type="Light2D" parent="GameplayNodes/DirtNodes/Zombie"]
+rotation = -0.888373
+scale = Vector2( 0.084375, 0.0802083 )
+texture = ExtResource( 8 )
+color = Color( 0.478431, 1, 0, 1 )
+energy = 0.5
+shadow_enabled = true
+
+[node name="Zombie2" type="Sprite" parent="GameplayNodes/DirtNodes"]
+position = Vector2( 842, 273 )
+rotation = 0.888373
+scale = Vector2( 3, 3 )
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Zombie" type="Light2D" parent="GameplayNodes/DirtNodes/Zombie2"]
+rotation = -0.888373
+scale = Vector2( 0.084375, 0.0802083 )
+texture = ExtResource( 8 )
+color = Color( 0.478431, 1, 0, 1 )
+energy = 0.5
+shadow_enabled = true
+
+[node name="Darkener" type="CanvasModulate" parent="GameplayNodes/DirtNodes"]
+position = Vector2( -1, -1 )
+scale = Vector2( 1.00045, 1 )
+color = Color( 0.117647, 0.117647, 0.117647, 1 )
+
+[node name="Spawn" type="Position2D" parent="GameplayNodes"]
+position = Vector2( 1228.67, 366.431 )
+
+[node name="EnemySpawn" type="Position2D" parent="GameplayNodes"]
+position = Vector2( 376, 320 )
+
+[node name="Platform" type="StaticBody2D" parent="GameplayNodes" groups=[
+"wall",
+]]
+position = Vector2( -334, 464 )
+collision_layer = 5
+collision_mask = 5
+
+[node name="Occluder" type="LightOccluder2D" parent="GameplayNodes/Platform"]
+position = Vector2( -578, -464 )
+occluder = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Wall" type="CollisionPolygon2D" parent="GameplayNodes/Platform"]
+position = Vector2( 256, 296 )
+polygon = PoolVector2Array( 354, -196, 354, -178, 662, -178, 662, -10, 676, -10, 676, -178, 753, -178, 753, -10, 677, -10, 676, -9, 662, -9, 661, -10, 288.375, -10, 288, -178, 300, -178, 300, -196, 162, -196, 162, -364, 300, -364, 300, -406, 213, -406, 213, -544, 754.138, -544, 751, -406, 615.511, -406, 615, -542, 567, -542, 567.465, -406, 354, -406, 354, -364, 768, -364, 768, -562, 93, -562, 93, -691, 150, -748, 662.085, -748, 662, -656, 678, -656, 678.412, -748, 922, -748, 922, -656, 936, -656, 936, -748, 1449, -748, 1506, -691, 1506, -562, 835, -562, 834, -409, 981, -409, 1020, -448, 1020, -526, 1535, -526, 1590, -469, 1590, -340, 834, -340, 834, -323, 849, -323, 850, -322, 1605, -322, 1605, -481, 1548, -538, 1005, -538, 1005, -460, 972, -427, 849, -427, 849, -544, 1506, -544, 1521, -544, 1521, -703, 1464, -760, 135, -761, 78, -703, 78, -562, 78, -544, 198, -544, 198, -388, 294, -388, 294, -382, 147, -382, 147, -178, 273, -178, 273, 8, 1611, 8, 1611, -319, 1023, -319, 978, -274, 978, -115, 960, -97, 849, -97, 849, -322, 834, -322, 834, -79, 969, -79, 993, -103, 993, -151.031, 1551, -151, 1551, -166, 993, -166.063, 993, -265, 1032, -304, 1606, -304, 1606, -10, 768, -10.022, 768, -196 )
+
+[node name="BulletCollision" type="Area2D" parent="GameplayNodes/Platform" groups=[
+"wall",
+]]
+
+[node name="Wall2" type="CollisionPolygon2D" parent="GameplayNodes/Platform/BulletCollision"]
+position = Vector2( 256, 296 )
+polygon = PoolVector2Array( 354, -196, 354, -178, 662, -178, 662, -10, 676, -10, 676, -178, 753, -178, 753, -10, 677, -10, 676, -9, 662, -9, 661, -10, 288.375, -10, 288, -178, 300, -178, 300, -196, 162, -196, 162, -364, 300, -364, 300, -406, 213, -406, 213, -544, 754.138, -544, 751, -406, 615.511, -406, 615, -542, 567, -542, 567.465, -406, 354, -406, 354, -364, 768, -364, 768, -562, 93, -562, 93, -691, 150, -748, 662.085, -748, 662, -656, 678, -656, 678.412, -748, 922, -748, 922, -656, 936, -656, 936, -748, 1449, -748, 1506, -691, 1506, -562, 835, -562, 834, -409, 981, -409, 1020, -448, 1020, -526, 1535, -526, 1590, -469, 1590, -340, 834, -340, 834, -323, 849, -323, 850, -322, 1605, -322, 1605, -481, 1548, -538, 1005, -538, 1005, -460, 972, -427, 849, -427, 849, -544, 1506, -544, 1521, -544, 1521, -703, 1464, -760, 135, -761, 78, -703, 78, -562, 78, -544, 198, -544, 198, -388, 294, -388, 294, -382, 147, -382, 147, -178, 273, -178, 273, 8, 1611, 8, 1611, -319, 1023, -319, 978, -274, 978, -115, 960, -97, 849, -97, 849, -322, 834, -322, 834, -79, 969, -79, 993, -103, 993, -151.031, 1551, -151, 1551, -166, 993, -166.063, 993, -265, 1032, -304, 1606, -304, 1606, -10, 768, -10.022, 768, -196 )
+
+[node name="LadderCentral" type="Node2D" parent="GameplayNodes/Platform"]
+position = Vector2( 354, -592 )
+
+[node name="range" type="Area2D" parent="GameplayNodes/Platform/LadderCentral" groups=[
+"ladderMid",
+]]
+position = Vector2( 702, 551 )
+
+[node name="shape" type="CollisionShape2D" parent="GameplayNodes/Platform/LadderCentral/range"]
+shape = SubResource( 4 )
+
+[node name="Doors" type="Node2D" parent="GameplayNodes"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="DoorCentral" parent="GameplayNodes/Doors" instance=ExtResource( 20 )]
+position = Vector2( 890.926, 385.405 )
+scale = Vector2( 1, 1.1 )
+
+[node name="DoorGreenhouse" parent="GameplayNodes/Doors" instance=ExtResource( 20 )]
+position = Vector2( 871.34, 715.343 )
+scale = Vector2( 1, 1.1 )
+
+[node name="DoorELeft" parent="GameplayNodes/Doors" instance=ExtResource( 20 )]
+position = Vector2( 591.929, 151.83 )
+scale = Vector2( 0.78, 1.5 )
+
+[node name="DoorERight" parent="GameplayNodes/Doors" instance=ExtResource( 20 )]
+position = Vector2( 850.942, 151.835 )
+scale = Vector2( 0.78, 1.5 )
+
+[node name="Dummies" type="Node2D" parent="GameplayNodes"]
+
+[node name="Dummy" parent="GameplayNodes/Dummies" instance=ExtResource( 7 )]
+position = Vector2( 132, 516 )
+
+[node name="Texture" parent="GameplayNodes/Dummies/Dummy" index="0"]
+flip_h = true
+
+[node name="Dummy2" parent="GameplayNodes/Dummies" instance=ExtResource( 7 )]
+position = Vector2( 1478, 372 )
+
+[node name="Dummy3" parent="GameplayNodes/Dummies" instance=ExtResource( 21 )]
+position = Vector2( 963, 546 )
+
+[node name="Armory" type="Node2D" parent="GameplayNodes"]
+visible = false
+position = Vector2( -846, 0 )
+
+[node name="PlatformMaskLadder" type="Sprite" parent="GameplayNodes/Armory"]
+position = Vector2( 1077, 573 )
+scale = Vector2( 3, 3 )
+z_index = 6
+texture = ExtResource( 3 )
+
+[node name="PlatformMaskLadder2" type="Sprite" parent="GameplayNodes/Armory/PlatformMaskLadder"]
+position = Vector2( 11, 0 )
+z_index = 6
+texture = ExtResource( 3 )
+
+[node name="LadderArmory" type="Node2D" parent="GameplayNodes/Armory"]
+position = Vector2( 392, 0 )
+
+[node name="range" type="Area2D" parent="GameplayNodes/Armory/LadderArmory" groups=[
+"ladderMid",
+]]
+position = Vector2( 702, 508 )
+
+[node name="shape" type="CollisionShape2D" parent="GameplayNodes/Armory/LadderArmory/range"]
+shape = SubResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Lights" type="Node2D" parent="GameplayNodes/Armory"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Xelar" type="Light2D" parent="GameplayNodes/Armory/Lights"]
+position = Vector2( 1491, 483 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 8 )
+color = Color( 0.835294, 0.537255, 0.537255, 1 )
+shadow_enabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Chunks" type="CPUParticles2D" parent="GameplayNodes/Armory/Lights/Xelar"]
+material = SubResource( 6 )
+position = Vector2( -22.2241, 9.99976 )
+amount = 10
+lifetime = 0.5
+randomness = 1.0
+lifetime_randomness = 1.0
+emission_shape = 2
+emission_rect_extents = Vector2( 125, 175 )
+gravity = Vector2( 0, -98 )
+scale_amount = 20.0
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 7 )
+color = Color( 0.764706, 0.345098, 0.345098, 1 )
+
+[node name="XelarPerf" type="VisibilityNotifier2D" parent="GameplayNodes/Armory/Lights/Xelar/Chunks"]
+position = Vector2( 2.22413, 10.0002 )
+scale = Vector2( 9.6, 9.6 )
+
+[node name="Screen" type="Light2D" parent="GameplayNodes/Armory/Lights"]
+position = Vector2( 1160, 470 )
+scale = Vector2( 0.15, 0.1125 )
+texture = ExtResource( 8 )
+color = Color( 0.537255, 0.835294, 0.835294, 1 )
+energy = 0.6
+shadow_enabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ScreenPerf" type="VisibilityNotifier2D" parent="GameplayNodes/Armory/Lights/Screen"]
+rect = Rect2( -150, -125, 300, 250 )
+
+[node name="White" type="Light2D" parent="GameplayNodes/Armory/Lights"]
+position = Vector2( 1318, 512 )
+scale = Vector2( 0.6, 0.3 )
+texture = ExtResource( 8 )
+energy = 0.6
+mode = 2
+shadow_enabled = true
+
+[node name="RedTubePerf" type="VisibilityNotifier2D" parent="GameplayNodes/Armory/Lights/White"]
+rect = Rect2( -150, -150, 300, 300 )
+
+[node name="Laser" type="Light2D" parent="GameplayNodes/Armory/Lights"]
+position = Vector2( 1437, 669 )
+scale = Vector2( 0.225, 1 )
+texture = ExtResource( 8 )
+color = Color( 1, 0.168627, 0, 1 )
+energy = 1.25
+shadow_enabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LaserPerf" type="VisibilityNotifier2D" parent="GameplayNodes/Armory/Lights/Laser"]
+position = Vector2( -4.65661e-09, -3.25963e-09 )
+scale = Vector2( 1, 0.4 )
+rect = Rect2( -300, -250, 600, 500 )
+
+[node name="Gun" type="Light2D" parent="GameplayNodes/Armory/Lights"]
+position = Vector2( 1488, 674 )
+scale = Vector2( 0.15, 0.225 )
+texture = ExtResource( 8 )
+color = Color( 0, 0.505882, 1, 1 )
+energy = 1.5
+shadow_enabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="GunPerf" type="VisibilityNotifier2D" parent="GameplayNodes/Armory/Lights/Gun"]
+scale = Vector2( 13.3333, 4.44444 )
+
+[node name="GunAnimation" type="AnimationPlayer" parent="GameplayNodes/Armory/Lights/Gun"]
+autoplay = "Glow"
+anims/Glow = SubResource( 8 )
+
+[node name="Stand" type="Light2D" parent="GameplayNodes/Armory/Lights"]
+position = Vector2( 1154, 601 )
+scale = Vector2( 0.1, 0.5 )
+texture = ExtResource( 8 )
+color = Color( 0.215686, 0.964706, 1, 1 )
+shadow_enabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StandPerf" type="VisibilityNotifier2D" parent="GameplayNodes/Armory/Lights/Stand"]
+position = Vector2( 13.334, -13.3335 )
+rect = Rect2( -150, -50, 300, 100 )
+
+[node name="Stand2" type="Light2D" parent="GameplayNodes/Armory/Lights"]
+position = Vector2( 1208, 603 )
+scale = Vector2( 0.1, 0.5 )
+texture = ExtResource( 8 )
+color = Color( 0.215686, 0.964706, 1, 1 )
+shadow_enabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Stand2Perf" type="VisibilityNotifier2D" parent="GameplayNodes/Armory/Lights/Stand2"]
+rect = Rect2( -150, -50, 300, 100 )
+
+[node name="Stand3" type="Light2D" parent="GameplayNodes/Armory/Lights"]
+position = Vector2( 1300, 600 )
+scale = Vector2( 0.1, 0.5 )
+texture = ExtResource( 8 )
+color = Color( 0.215686, 0.964706, 1, 1 )
+shadow_enabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Stand3Perf" type="VisibilityNotifier2D" parent="GameplayNodes/Armory/Lights/Stand3"]
+position = Vector2( -13.3262, -22.2222 )
+rect = Rect2( -150, -50, 300, 100 )
+
+[node name="Ak47Module" type="Node2D" parent="GameplayNodes/Armory"]
+position = Vector2( 1223, 703 )
+
+[node name="Equipweapon" type="Area2D" parent="GameplayNodes/Armory/Ak47Module"]
+
+[node name="Shape" type="CollisionShape2D" parent="GameplayNodes/Armory/Ak47Module/Equipweapon"]
+shape = SubResource( 9 )
+
+[node name="EquipSound" type="AudioStreamPlayer2D" parent="GameplayNodes/Armory/Ak47Module"]
+stream = ExtResource( 4 )
+
+[node name="SniperModule" type="Node2D" parent="GameplayNodes/Armory"]
+position = Vector2( 1436, 704 )
+
+[node name="Equipweapon2" type="Area2D" parent="GameplayNodes/Armory/SniperModule"]
+
+[node name="Shape" type="CollisionShape2D" parent="GameplayNodes/Armory/SniperModule/Equipweapon2"]
+shape = SubResource( 9 )
+
+[node name="EquipSound2" type="AudioStreamPlayer2D" parent="GameplayNodes/Armory/SniperModule"]
+position = Vector2( 55, -24 )
+stream = ExtResource( 5 )
+volume_db = 15.0
+
+[node name="Greenhouse" type="Node2D" parent="GameplayNodes"]
+visible = false
+
+[node name="Lights" type="Node2D" parent="GameplayNodes/Greenhouse"]
+position = Vector2( -846, 0 )
+
+[node name="Upper" type="Light2D" parent="GameplayNodes/Greenhouse/Lights"]
+position = Vector2( 2062, 472 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+energy = 0.6
+shadow_enabled = true
+
+[node name="UpperPerf" type="VisibilityNotifier2D" parent="GameplayNodes/Greenhouse/Lights/Upper"]
+position = Vector2( -2.75001, 0 )
+scale = Vector2( 12.725, 1 )
+rect = Rect2( -10, -10, 20, 100 )
+
+[node name="Blossom" type="Light2D" parent="GameplayNodes/Greenhouse/Lights"]
+position = Vector2( 2032, 561 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 8 )
+color = Color( 1, 0, 0.890196, 1 )
+energy = 0.85
+shadow_enabled = true
+
+[node name="BlossomPerf" type="VisibilityNotifier2D" parent="GameplayNodes/Greenhouse/Lights/Blossom"]
+position = Vector2( 4.99973, -41.6667 )
+scale = Vector2( 14.5, 13.5 )
+
+[node name="Bamboo" type="Light2D" parent="GameplayNodes/Greenhouse/Lights"]
+position = Vector2( 2217, 554 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 8 )
+color = Color( 0.266667, 1, 0, 1 )
+energy = 0.6
+shadow_enabled = true
+
+[node name="BambooPerf" type="VisibilityNotifier2D" parent="GameplayNodes/Greenhouse/Lights/Bamboo"]
+position = Vector2( 6.66675, -15 )
+scale = Vector2( 14.3333, 10.8333 )
+
+[node name="Seeweed" type="Light2D" parent="GameplayNodes/Greenhouse/Lights"]
+position = Vector2( 2271, 707 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 8 )
+color = Color( 0, 0.756863, 0.52549, 1 )
+shadow_enabled = true
+
+[node name="SeeweedChunks" type="CPUParticles2D" parent="GameplayNodes/Greenhouse/Lights/Seeweed"]
+material = SubResource( 6 )
+position = Vector2( -33.3335, -30 )
+scale = Vector2( 0.833333, 0.833333 )
+amount = 10
+randomness = 1.0
+lifetime_randomness = 1.0
+emission_shape = 2
+emission_rect_extents = Vector2( 200, 175 )
+gravity = Vector2( 0, -98 )
+scale_amount = 20.0
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 7 )
+color = Color( 0.545098, 0.764706, 0.345098, 1 )
+
+[node name="SeeweedPerf" type="VisibilityNotifier2D" parent="GameplayNodes/Greenhouse/Lights/Seeweed"]
+position = Vector2( -15.0001, -33.3332 )
+scale = Vector2( 14.5, 16.3333 )
+
+[node name="Modules" type="Light2D" parent="GameplayNodes/Greenhouse/Lights"]
+position = Vector2( 1967, 716 )
+scale = Vector2( 0.5, 0.3 )
+texture = ExtResource( 8 )
+color = Color( 0, 0.756863, 0.52549, 1 )
+shadow_enabled = true
+
+[node name="ModulesPerf" type="VisibilityNotifier2D" parent="GameplayNodes/Greenhouse/Lights/Modules"]
+position = Vector2( 2, -31.6666 )
+scale = Vector2( 24.4, 13.8333 )
+
+[node name="Stand" type="Light2D" parent="GameplayNodes/Greenhouse/Lights"]
+position = Vector2( 1787, 549 )
+scale = Vector2( 0.05, 0.1 )
+texture = ExtResource( 8 )
+color = Color( 0.215686, 0.964706, 1, 1 )
+shadow_enabled = true
+
+[node name="GStandPerf" type="VisibilityNotifier2D" parent="GameplayNodes/Greenhouse/Lights/Stand"]
+position = Vector2( -10.0003, -280 )
+scale = Vector2( 27, 6.00002 )
+
+[node name="Stand2" type="Light2D" parent="GameplayNodes/Greenhouse/Lights"]
+position = Vector2( 1868, 552 )
+scale = Vector2( 0.05, 0.1 )
+texture = ExtResource( 8 )
+color = Color( 0.215686, 0.964706, 1, 1 )
+shadow_enabled = true
+
+[node name="GStand2Perf" type="VisibilityNotifier2D" parent="GameplayNodes/Greenhouse/Lights/Stand2"]
+position = Vector2( 3.05176e-05, -310 )
+scale = Vector2( 22, 4.99999 )
+
+[node name="Plant" type="Light2D" parent="GameplayNodes/Greenhouse/Lights"]
+position = Vector2( 1835, 547 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 8 )
+color = Color( 0.34902, 1, 0.215686, 1 )
+shadow_enabled = true
+
+[node name="PlantPerf" type="VisibilityNotifier2D" parent="GameplayNodes/Greenhouse/Lights/Plant"]
+position = Vector2( -9.99971, 0.000183105 )
+scale = Vector2( 19, 18 )
+
+[node name="LadderMid" type="Node2D" parent="GameplayNodes/Greenhouse"]
+position = Vector2( 796, -7 )
+
+[node name="range" type="Area2D" parent="GameplayNodes/Greenhouse/LadderMid" groups=[
+"ladderMid",
+]]
+position = Vector2( 703, 613 )
+
+[node name="shape" type="CollisionShape2D" parent="GameplayNodes/Greenhouse/LadderMid/range"]
+shape = SubResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Electrical" type="Node2D" parent="GameplayNodes"]
+visible = false
+
+[node name="Lights" type="Node2D" parent="GameplayNodes/Electrical"]
+
+[node name="Core" type="Light2D" parent="GameplayNodes/Electrical/Lights"]
+position = Vector2( 602, 282 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 8 )
+color = Color( 0, 0.952941, 1, 1 )
+energy = 1.01563
+shadow_enabled = true
+
+[node name="LightCore" type="AnimationPlayer" parent="GameplayNodes/Electrical/Lights/Core"]
+autoplay = "glow"
+playback_process_mode = 0
+anims/glow = SubResource( 10 )
+
+[node name="CorePerf" type="VisibilityNotifier2D" parent="GameplayNodes/Electrical/Lights/Core"]
+scale = Vector2( 15, 15 )
+
+[node name="Screens" type="Light2D" parent="GameplayNodes/Electrical/Lights"]
+position = Vector2( 379, 280 )
+scale = Vector2( 0.25, 0.15 )
+texture = ExtResource( 8 )
+color = Color( 0, 0.952941, 1, 1 )
+energy = 0.4
+shadow_enabled = true
+
+[node name="ScreensPerf" type="VisibilityNotifier2D" parent="GameplayNodes/Electrical/Lights/Screens"]
+scale = Vector2( 25, 25 )
+
+[node name="Books" type="Light2D" parent="GameplayNodes/Electrical/Lights"]
+position = Vector2( 171, 280 )
+scale = Vector2( 0.2, 0.25 )
+texture = ExtResource( 8 )
+energy = 0.5
+shadow_enabled = true
+
+[node name="BooksPerf" type="VisibilityNotifier2D" parent="GameplayNodes/Electrical/Lights/Books"]
+
+[node name="LightStand" type="Light2D" parent="GameplayNodes/Electrical/Lights"]
+position = Vector2( 242, 250 )
+scale = Vector2( 0.1, 0.15 )
+texture = ExtResource( 8 )
+color = Color( 0, 1, 1, 1 )
+energy = 0.6
+shadow_enabled = true
+
+[node name="LtPerf" type="VisibilityNotifier2D" parent="GameplayNodes/Electrical/Lights/LightStand"]
+
+[node name="LightStand2" type="Light2D" parent="GameplayNodes/Electrical/Lights"]
+position = Vector2( 329, 247 )
+scale = Vector2( 0.1, 0.15 )
+texture = ExtResource( 8 )
+color = Color( 0, 1, 1, 1 )
+energy = 0.6
+shadow_enabled = true
+
+[node name="LtPerf2" type="VisibilityNotifier2D" parent="GameplayNodes/Electrical/Lights/LightStand2"]
+
+[node name="LightStand3" type="Light2D" parent="GameplayNodes/Electrical/Lights"]
+position = Vector2( 422, 244 )
+scale = Vector2( 0.1, 0.15 )
+texture = ExtResource( 8 )
+color = Color( 0, 1, 1, 1 )
+energy = 0.6
+shadow_enabled = true
+
+[node name="LtPerf3" type="VisibilityNotifier2D" parent="GameplayNodes/Electrical/Lights/LightStand3"]
+
+[node name="Energy" type="Node2D" parent="GameplayNodes"]
+visible = false
+
+[node name="Lights" type="Node2D" parent="GameplayNodes/Energy"]
+
+[node name="SunLight" type="AnimationPlayer" parent="GameplayNodes/Energy/Lights"]
+autoplay = "sun"
+playback_process_mode = 0
+anims/sun = SubResource( 11 )
+
+[node name="Sun" type="Light2D" parent="GameplayNodes/Energy/Lights"]
+position = Vector2( 361, 21 )
+texture = ExtResource( 8 )
+color = Color( 1, 0.52549, 0.0196078, 1 )
+energy = 1.39531
+shadow_enabled = true
+
+[node name="SunPerf" type="VisibilityNotifier2D" parent="GameplayNodes/Energy/Lights/Sun"]
+position = Vector2( -35, 1 )
+scale = Vector2( 30, 1 )
+rect = Rect2( -10, -10, 20, 100 )
+
+[node name="Sun2" type="Light2D" parent="GameplayNodes/Energy/Lights"]
+position = Vector2( 1108, 20 )
+texture = ExtResource( 8 )
+color = Color( 1, 0.52549, 0.0196078, 1 )
+energy = 1.39531
+shadow_enabled = true
+
+[node name="SunPerf2" type="VisibilityNotifier2D" parent="GameplayNodes/Energy/Lights/Sun2"]
+position = Vector2( -2.75001, 0 )
+scale = Vector2( 30, 1 )
+rect = Rect2( -10, -10, 20, 100 )
+
+[node name="Sun3" type="Light2D" parent="GameplayNodes/Energy/Lights"]
+position = Vector2( 748, -277 )
+scale = Vector2( 2.62695, 1.89063 )
+z_index = 1
+texture = ExtResource( 8 )
+color = Color( 1, 0.52549, 0.0196078, 1 )
+energy = 1.39531
+shadow_enabled = true
+
+[node name="SunPerf3" type="VisibilityNotifier2D" parent="GameplayNodes/Energy/Lights/Sun3"]
+position = Vector2( -2.75001, 127.259 )
+scale = Vector2( 30, 0.296198 )
+rect = Rect2( -10, -10, 20, 100 )
+
+[node name="Warning" type="Light2D" parent="GameplayNodes/Energy/Lights"]
+position = Vector2( 728, 66 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 8 )
+color = Color( 1, 0.917647, 0.0196078, 1 )
+shadow_enabled = true
+
+[node name="WarnPerf" type="VisibilityNotifier2D" parent="GameplayNodes/Energy/Lights/Warning"]
+position = Vector2( -23.3333, 13.3333 )
+scale = Vector2( 17.3333, 17.8333 )
+
+[node name="Bot" type="Light2D" parent="GameplayNodes/Energy/Lights"]
+position = Vector2( 645.058, 140.608 )
+scale = Vector2( 0.1, 0.2 )
+texture = ExtResource( 8 )
+color = Color( 0.760784, 1, 0.752941, 1 )
+shadow_enabled = true
+
+[node name="BotPerf" type="VisibilityNotifier2D" parent="GameplayNodes/Energy/Lights/Bot"]
+
+[node name="Bot2" type="Light2D" parent="GameplayNodes/Energy/Lights"]
+position = Vector2( 801.058, 145.608 )
+scale = Vector2( 0.1, 0.2 )
+texture = ExtResource( 8 )
+color = Color( 0.760784, 1, 0.752941, 1 )
+shadow_enabled = true
+
+[node name="BotPerf2" type="VisibilityNotifier2D" parent="GameplayNodes/Energy/Lights/Bot2"]
+
+[node name="Suit" type="Node2D" parent="GameplayNodes/Energy"]
+position = Vector2( 643.562, 143.903 )
+
+[node name="SuitUp" type="Area2D" parent="GameplayNodes/Energy/Suit"]
+
+[node name="Shape" type="CollisionShape2D" parent="GameplayNodes/Energy/Suit/SuitUp"]
+shape = SubResource( 12 )
+
+[node name="Suit2" type="Node2D" parent="GameplayNodes/Energy"]
+position = Vector2( 803.062, 141.403 )
+
+[node name="SuitUp" type="Area2D" parent="GameplayNodes/Energy/Suit2"]
+
+[node name="Shape" type="CollisionShape2D" parent="GameplayNodes/Energy/Suit2/SuitUp"]
+shape = SubResource( 12 )
+
+[node name="Poison" type="Node2D" parent="GameplayNodes/Energy"]
+
+[node name="Left" type="Area2D" parent="GameplayNodes/Energy/Poison"]
+position = Vector2( 280, 112 )
+
+[node name="Shape" type="CollisionShape2D" parent="GameplayNodes/Energy/Poison/Left"]
+shape = SubResource( 13 )
+
+[node name="Right" type="Area2D" parent="GameplayNodes/Energy/Poison"]
+position = Vector2( 1160, 112 )
+
+[node name="Shape" type="CollisionShape2D" parent="GameplayNodes/Energy/Poison/Right"]
+shape = SubResource( 13 )
+
+[node name="Central" type="Node2D" parent="GameplayNodes"]
+visible = false
+
+[node name="Lights" type="Node2D" parent="GameplayNodes/Central"]
+
+[node name="TvLight" type="Light2D" parent="GameplayNodes/Central/Lights"]
+position = Vector2( 1226, 330 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 8 )
+energy = 0.5
+shadow_enabled = true
+
+[node name="Tvs" type="Node2D" parent="GameplayNodes/Central"]
+
+[node name="Tv" type="AnimatedSprite" parent="GameplayNodes/Central/Tvs"]
+position = Vector2( 1225.25, 328.75 )
+scale = Vector2( 5.42188, 5.90625 )
+frames = SubResource( 17 )
+frame = 1
+playing = true
+
+[node name="TvPerf" type="VisibilityNotifier2D" parent="GameplayNodes/Central/Tvs/Tv"]
+scale = Vector2( 2.28, 2 )
+
+[node name="Enemy" type="CanvasLayer" parent="."]
+
+[node name="Timer" type="Timer" parent="Enemy"]
+one_shot = true
+
+[node name="GUI" type="Control" parent="Enemy"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnemyWaves" type="ProgressBar" parent="Enemy/GUI"]
+margin_top = 584.0
+margin_right = 1040.0
+margin_bottom = 600.0
+custom_styles/fg = SubResource( 18 )
+custom_styles/bg = SubResource( 19 )
+max_value = 0.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Box" type="Panel" parent="Enemy/GUI"]
+margin_top = 445.0
+margin_right = 122.0
+margin_bottom = 555.0
+custom_styles/panel = SubResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Box2" type="Panel" parent="Enemy/GUI/Box"]
+margin_top = 111.0
+margin_right = 331.0
+margin_bottom = 138.0
+custom_styles/panel = SubResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Wave" type="Label" parent="Enemy/GUI"]
+margin_left = 45.0
+margin_top = 454.0
+margin_right = 126.0
+margin_bottom = 556.0
+custom_fonts/font = SubResource( 21 )
+text = "0
+0
+0"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Location" type="Label" parent="Enemy/GUI"]
+margin_left = 13.0
+margin_top = 563.0
+margin_right = 197.0
+margin_bottom = 579.0
+custom_fonts/font = SubResource( 22 )
+text = "test"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Performance" parent="Enemy/GUI" instance=ExtResource( 19 )]
+
+[node name="WavesIcon" type="TextureRect" parent="Enemy/GUI"]
+margin_left = 8.0
+margin_top = 451.0
+margin_right = 40.0
+margin_bottom = 483.0
+hint_tooltip = "ENEMY WAVE INDICATOR
+Indicates how many waves you encounter."
+texture = ExtResource( 27 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnemyLeftIcon" type="TextureRect" parent="Enemy/GUI"]
+margin_left = 8.0
+margin_top = 485.0
+margin_right = 40.0
+margin_bottom = 517.0
+hint_tooltip = "ENEMY LEFT INDICATOR
+Shows how many enemies are left."
+texture = ExtResource( 26 )
+
+[node name="TimerLeftIcon" type="TextureRect" parent="Enemy/GUI"]
+margin_left = 9.0
+margin_top = 521.0
+margin_right = 41.0
+margin_bottom = 553.0
+hint_tooltip = "TIMER LEFT INDICATOR
+Tells the time left. If the time is 0 and there are still enemies, you will die. Killing enemies restore the time randomly."
+texture = ExtResource( 25 )
+
+[node name="Pause" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="GUI" type="Control" parent="Pause"]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 23 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PausePlayer" type="AnimationPlayer" parent="Pause/GUI"]
+anims/fade = SubResource( 23 )
+
+[node name="Overlay" type="ColorRect" parent="Pause/GUI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0.764706 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Paused" type="Label" parent="Pause/GUI"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 168.0
+margin_top = 304.0
+margin_right = 884.0
+margin_bottom = 344.0
+custom_fonts/font = SubResource( 21 )
+text = "-GAME PAUSED | PRESS ESC TO CONTINUE-"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="Pause/GUI"]
+margin_left = 169.0
+margin_top = 257.0
+margin_right = 885.0
+margin_bottom = 297.0
+custom_fonts/font = SubResource( 21 )
+text = "SCORE: "
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mainmenu" type="Button" parent="Pause/GUI"]
+margin_left = 416.0
+margin_top = 352.0
+margin_right = 624.0
+margin_bottom = 390.0
+custom_styles/focus = SubResource( 24 )
+custom_fonts/font = SubResource( 25 )
+custom_colors/font_color = Color( 0.701961, 0.701961, 0.701961, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.372549, 0.372549, 0.372549, 1 )
+text = "TO MAINMENU"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tasks" parent="." instance=ExtResource( 28 )]
+
+[node name="CommandNode" parent="Tasks" index="1"]
+position = Vector2( 1238, 380 )
+
+[node name="ElectricalNode" parent="Tasks" index="2"]
+position = Vector2( 380, 304 )
+
+[node name="ArmoryNode" parent="Tasks" index="3"]
+position = Vector2( 316, 504 )
+
+[node name="GreenhouseNode" parent="Tasks" index="4"]
+position = Vector2( 1120, 722 )
+
+[connection signal="animation_finished" from="Transition/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="area_entered" from="GameplayNodes/Platform/BulletCollision" to="." method="_on_BulletCollision_area_entered"]
+[connection signal="screen_entered" from="GameplayNodes/Armory/Lights/Xelar/Chunks/XelarPerf" to="." method="_on_XelarPerf_screen_entered"]
+[connection signal="screen_exited" from="GameplayNodes/Armory/Lights/Xelar/Chunks/XelarPerf" to="." method="_on_XelarPerf_screen_exited"]
+[connection signal="screen_entered" from="GameplayNodes/Armory/Lights/Screen/ScreenPerf" to="." method="_on_ScreenPerf_screen_entered"]
+[connection signal="screen_exited" from="GameplayNodes/Armory/Lights/Screen/ScreenPerf" to="." method="_on_ScreenPerf_screen_exited"]
+[connection signal="screen_entered" from="GameplayNodes/Armory/Lights/White/RedTubePerf" to="." method="_on_RedTubePerf_screen_entered"]
+[connection signal="screen_exited" from="GameplayNodes/Armory/Lights/White/RedTubePerf" to="." method="_on_RedTubePerf_screen_exited"]
+[connection signal="screen_entered" from="GameplayNodes/Armory/Lights/Laser/LaserPerf" to="." method="_on_LaserPerf_screen_entered"]
+[connection signal="screen_exited" from="GameplayNodes/Armory/Lights/Laser/LaserPerf" to="." method="_on_LaserPerf_screen_exited"]
+[connection signal="screen_entered" from="GameplayNodes/Armory/Lights/Gun/GunPerf" to="." method="_on_GunPerf_screen_entered"]
+[connection signal="screen_exited" from="GameplayNodes/Armory/Lights/Gun/GunPerf" to="." method="_on_GunPerf_screen_exited"]
+[connection signal="screen_entered" from="GameplayNodes/Armory/Lights/Stand/StandPerf" to="." method="_on_StandPerf_screen_entered"]
+[connection signal="screen_exited" from="GameplayNodes/Armory/Lights/Stand/StandPerf" to="." method="_on_StandPerf_screen_exited"]
+[connection signal="screen_entered" from="GameplayNodes/Armory/Lights/Stand2/Stand2Perf" to="." method="_on_Stand2Perf_screen_entered"]
+[connection signal="screen_exited" from="GameplayNodes/Armory/Lights/Stand2/Stand2Perf" to="." method="_on_Stand2Perf_screen_exited"]
+[connection signal="screen_entered" from="GameplayNodes/Armory/Lights/Stand3/Stand3Perf" to="." method="_on_Stand3Perf_screen_entered"]
+[connection signal="screen_exited" from="GameplayNodes/Armory/Lights/Stand3/Stand3Perf" to="." method="_on_Stand3Perf_screen_exited"]
+[connection signal="body_entered" from="GameplayNodes/Armory/Ak47Module/Equipweapon" to="." method="_on_Equipweapon_body_entered"]
+[connection signal="body_exited" from="GameplayNodes/Armory/Ak47Module/Equipweapon" to="." method="_on_Equipweapon_body_exited"]
+[connection signal="body_entered" from="GameplayNodes/Armory/SniperModule/Equipweapon2" to="." method="_on_Equipweapon2_body_entered"]
+[connection signal="body_exited" from="GameplayNodes/Armory/SniperModule/Equipweapon2" to="." method="_on_Equipweapon2_body_exited"]
+[connection signal="screen_entered" from="GameplayNodes/Greenhouse/Lights/Upper/UpperPerf" to="." method="_on_UpperPerf_screen_entered"]
+[connection signal="screen_exited" from="GameplayNodes/Greenhouse/Lights/Upper/UpperPerf" to="." method="_on_UpperPerf_screen_exited"]
+[connection signal="screen_entered" from="GameplayNodes/Greenhouse/Lights/Blossom/BlossomPerf" to="." method="_on_BlossomPerf_screen_entered"]
+[connection signal="screen_exited" from="GameplayNodes/Greenhouse/Lights/Blossom/BlossomPerf" to="." method="_on_BlossomPerf_screen_exited"]
+[connection signal="screen_entered" from="GameplayNodes/Greenhouse/Lights/Bamboo/BambooPerf" to="." method="_on_BambooPerf_screen_entered"]
+[connection signal="screen_exited" from="GameplayNodes/Greenhouse/Lights/Bamboo/BambooPerf" to="." method="_on_BambooPerf_screen_exited"]
+[connection signal="screen_entered" from="GameplayNodes/Greenhouse/Lights/Seeweed/SeeweedPerf" to="." method="_on_SeeweedPerf_screen_entered"]
+[connection signal="screen_exited" from="GameplayNodes/Greenhouse/Lights/Seeweed/SeeweedPerf" to="." method="_on_SeeweedPerf_screen_exited"]
+[connection signal="screen_entered" from="GameplayNodes/Greenhouse/Lights/Modules/ModulesPerf" to="." method="_on_ModulesPerf_screen_entered"]
+[connection signal="screen_exited" from="GameplayNodes/Greenhouse/Lights/Modules/ModulesPerf" to="." method="_on_ModulesPerf_screen_exited"]
+[connection signal="screen_entered" from="GameplayNodes/Greenhouse/Lights/Stand/GStandPerf" to="." method="_on_GStandPerf_screen_entered"]
+[connection signal="screen_exited" from="GameplayNodes/Greenhouse/Lights/Stand/GStandPerf" to="." method="_on_GStandPerf_screen_exited"]
+[connection signal="screen_entered" from="GameplayNodes/Greenhouse/Lights/Stand2/GStand2Perf" to="." method="_on_GStand2Perf_screen_entered"]
+[connection signal="screen_exited" from="GameplayNodes/Greenhouse/Lights/Stand2/GStand2Perf" to="." method="_on_GStand2Perf_screen_exited"]
+[connection signal="screen_entered" from="GameplayNodes/Greenhouse/Lights/Plant/PlantPerf" to="." method="_on_PlantPerf_screen_entered"]
+[connection signal="screen_exited" from="GameplayNodes/Greenhouse/Lights/Plant/PlantPerf" to="." method="_on_PlantPerf_screen_exited"]
+[connection signal="screen_entered" from="GameplayNodes/Electrical/Lights/Core/CorePerf" to="." method="_on_CorePerf_screen_entered"]
+[connection signal="screen_exited" from="GameplayNodes/Electrical/Lights/Core/CorePerf" to="." method="_on_CorePerf_screen_exited"]
+[connection signal="screen_entered" from="GameplayNodes/Electrical/Lights/Screens/ScreensPerf" to="." method="_on_ScreensPerf_screen_entered"]
+[connection signal="screen_exited" from="GameplayNodes/Electrical/Lights/Screens/ScreensPerf" to="." method="_on_ScreensPerf_screen_exited"]
+[connection signal="screen_entered" from="GameplayNodes/Electrical/Lights/Books/BooksPerf" to="." method="_on_BooksPerf_screen_entered"]
+[connection signal="screen_exited" from="GameplayNodes/Electrical/Lights/Books/BooksPerf" to="." method="_on_BooksPerf_screen_exited"]
+[connection signal="screen_entered" from="GameplayNodes/Electrical/Lights/LightStand/LtPerf" to="." method="_on_LtPerf_screen_entered"]
+[connection signal="screen_exited" from="GameplayNodes/Electrical/Lights/LightStand/LtPerf" to="." method="_on_LtPerf_screen_exited"]
+[connection signal="screen_entered" from="GameplayNodes/Electrical/Lights/LightStand2/LtPerf2" to="." method="_on_LtPerf2_screen_entered"]
+[connection signal="screen_exited" from="GameplayNodes/Electrical/Lights/LightStand2/LtPerf2" to="." method="_on_LtPerf2_screen_exited"]
+[connection signal="screen_entered" from="GameplayNodes/Electrical/Lights/LightStand3/LtPerf3" to="." method="_on_LtPerf3_screen_entered"]
+[connection signal="screen_exited" from="GameplayNodes/Electrical/Lights/LightStand3/LtPerf3" to="." method="_on_LtPerf3_screen_exited"]
+[connection signal="screen_entered" from="GameplayNodes/Energy/Lights/Sun/SunPerf" to="." method="_on_SunPerf_screen_entered"]
+[connection signal="screen_exited" from="GameplayNodes/Energy/Lights/Sun/SunPerf" to="." method="_on_SunPerf_screen_exited"]
+[connection signal="screen_entered" from="GameplayNodes/Energy/Lights/Sun2/SunPerf2" to="." method="_on_SunPerf2_screen_entered"]
+[connection signal="screen_exited" from="GameplayNodes/Energy/Lights/Sun2/SunPerf2" to="." method="_on_SunPerf2_screen_exited"]
+[connection signal="screen_entered" from="GameplayNodes/Energy/Lights/Sun3/SunPerf3" to="." method="_on_SunPerf3_screen_entered"]
+[connection signal="screen_exited" from="GameplayNodes/Energy/Lights/Sun3/SunPerf3" to="." method="_on_SunPerf3_screen_exited"]
+[connection signal="screen_entered" from="GameplayNodes/Energy/Lights/Warning/WarnPerf" to="." method="_on_WarnPerf_screen_entered"]
+[connection signal="screen_exited" from="GameplayNodes/Energy/Lights/Warning/WarnPerf" to="." method="_on_WarnPerf_screen_exited"]
+[connection signal="screen_entered" from="GameplayNodes/Energy/Lights/Bot/BotPerf" to="." method="_on_BotPerf_screen_entered"]
+[connection signal="screen_exited" from="GameplayNodes/Energy/Lights/Bot/BotPerf" to="." method="_on_BotPerf_screen_exited"]
+[connection signal="screen_entered" from="GameplayNodes/Energy/Lights/Bot2/BotPerf2" to="." method="_on_BotPerf2_screen_entered"]
+[connection signal="screen_exited" from="GameplayNodes/Energy/Lights/Bot2/BotPerf2" to="." method="_on_BotPerf2_screen_exited"]
+[connection signal="body_entered" from="GameplayNodes/Energy/Suit/SuitUp" to="." method="_on_SuitUp_body_entered"]
+[connection signal="body_exited" from="GameplayNodes/Energy/Suit/SuitUp" to="." method="_on_SuitUp_body_exited"]
+[connection signal="body_entered" from="GameplayNodes/Energy/Suit2/SuitUp" to="." method="_on_SuitUp_body_entered"]
+[connection signal="body_exited" from="GameplayNodes/Energy/Suit2/SuitUp" to="." method="_on_SuitUp_body_exited"]
+[connection signal="body_entered" from="GameplayNodes/Energy/Poison/Left" to="." method="_on_Left_body_entered"]
+[connection signal="body_exited" from="GameplayNodes/Energy/Poison/Left" to="." method="_on_Left_body_exited"]
+[connection signal="body_entered" from="GameplayNodes/Energy/Poison/Right" to="." method="_on_Right_body_entered"]
+[connection signal="body_exited" from="GameplayNodes/Energy/Poison/Right" to="." method="_on_Right_body_exited"]
+[connection signal="screen_entered" from="GameplayNodes/Central/Tvs/Tv/TvPerf" to="." method="_on_TvPerf_screen_entered"]
+[connection signal="screen_exited" from="GameplayNodes/Central/Tvs/Tv/TvPerf" to="." method="_on_TvPerf_screen_exited"]
+[connection signal="timeout" from="Enemy/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="Pause/GUI/Mainmenu" to="Pause/GUI" method="_on_Mainmenu_pressed"]
+
+[editable path="Transition"]
+[editable path="GameplayNodes/Dummies/Dummy"]
+[editable path="Tasks"]
