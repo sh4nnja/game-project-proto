@@ -1,0 +1,544 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://pckScenes/tasks/Tasks.gd" type="Script" id=1]
+[ext_resource path="res://pckScenes/tasks/slider.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/Coolville.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://pckScenes/tasks/button.png" type="Texture" id=4]
+[ext_resource path="res://pckScenes/tasks/button2.png" type="Texture" id=5]
+[ext_resource path="res://pckScenes/tasks/Panel.tres" type="StyleBox" id=6]
+[ext_resource path="res://assets/misc/tres/unshaded.tres" type="Material" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Console:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.1, 0.1 ),
+"update": 0,
+"values": [ Vector2( 0, 600 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Console:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="DynamicFont" id=4]
+size = 45
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=5]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Core:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.1, 0.1 ),
+"update": 0,
+"values": [ Vector2( 0, 600 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Core/Viewport/XelarCheck:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.7, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Core:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0, 0, 0, 0.686275 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0, 0, 0, 0.784314 )
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id=7]
+content_margin_left = 19.0
+bg_color = Color( 0, 0, 0, 0.784314 )
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="DynamicFont" id=10]
+size = 40
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=11]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Tanks:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.1, 0.1 ),
+"update": 0,
+"values": [ Vector2( 0, 600 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Tanks:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 32, 32, 32 )
+
+[sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=17]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Animation" id=18]
+tracks/0/type = "value"
+tracks/0/path = NodePath("PlantStats:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.1, 0.1 ),
+"update": 0,
+"values": [ Vector2( 0, 600 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PlantStats:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="RectangleShape2D" id=19]
+extents = Vector2( 64, 64 )
+
+[node name="TasksNode" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Tasks" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="Command" type="Node" parent="Tasks"]
+
+[node name="CommandPlayer" type="AnimationPlayer" parent="Tasks/Command"]
+playback_process_mode = 0
+anims/open = SubResource( 1 )
+
+[node name="Console" type="Control" parent="Tasks/Command"]
+visible = false
+material = ExtResource( 7 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 600.0
+margin_bottom = 600.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="PanelContainer" parent="Tasks/Command/Console"]
+margin_left = 257.0
+margin_top = 18.0
+margin_right = 769.0
+margin_bottom = 530.0
+rect_pivot_offset = Vector2( 256, 256 )
+custom_styles/panel = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tasks" type="ItemList" parent="Tasks/Command/Console"]
+use_parent_material = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 320.0
+margin_top = 64.0
+margin_right = -320.0
+margin_bottom = -120.0
+custom_styles/bg_focus = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
+icon_mode = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Electrical" type="Node" parent="Tasks"]
+
+[node name="ElecPlayer" type="AnimationPlayer" parent="Tasks/Electrical"]
+playback_process_mode = 0
+anims/open = SubResource( 5 )
+
+[node name="Core" type="Control" parent="Tasks/Electrical"]
+visible = false
+material = ExtResource( 7 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 600.0
+margin_bottom = 600.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="PanelContainer" parent="Tasks/Electrical/Core"]
+margin_left = 257.0
+margin_top = 18.0
+margin_right = 769.0
+margin_bottom = 530.0
+rect_pivot_offset = Vector2( 256, 256 )
+custom_styles/panel = SubResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="PanelContainer" parent="Tasks/Electrical/Core"]
+margin_left = 320.0
+margin_top = 48.0
+margin_right = 736.0
+margin_bottom = 496.0
+custom_styles/panel = SubResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="XelarCheck" type="CPUParticles2D" parent="Tasks/Electrical/Core/Viewport"]
+position = Vector2( 216, 224 )
+scale = Vector2( 4, 4 )
+emitting = false
+amount = 100
+randomness = 1.0
+lifetime_randomness = 1.0
+emission_shape = 2
+emission_rect_extents = Vector2( 25, 40 )
+gravity = Vector2( 0, 8 )
+initial_velocity = 2.5
+initial_velocity_random = 1.0
+orbit_velocity = 1.5
+orbit_velocity_random = 1.0
+radial_accel = 1.0
+radial_accel_random = 1.0
+tangential_accel = 1.0
+tangential_accel_random = 1.0
+damping = 1.0
+damping_random = 1.0
+angle = 360.0
+angle_random = 1.0
+scale_amount = 1.5
+scale_amount_random = 1.0
+color = Color( 0, 0.75, 1, 1 )
+
+[node name="Bar" type="VSlider" parent="Tasks/Electrical/Core"]
+margin_left = 272.0
+margin_top = 96.0
+margin_right = 304.0
+margin_bottom = 496.0
+custom_icons/grabber_highlight = ExtResource( 2 )
+custom_icons/grabber = ExtResource( 2 )
+custom_styles/slider = SubResource( 7 )
+custom_styles/grabber_area_highlight = SubResource( 8 )
+custom_styles/grabber_area = SubResource( 9 )
+rounded = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stats" type="Label" parent="Tasks/Electrical/Core"]
+margin_left = 328.0
+margin_top = 456.0
+margin_right = 512.0
+margin_bottom = 488.0
+custom_fonts/font = SubResource( 10 )
+text = "test"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Armory" type="Node" parent="Tasks"]
+
+[node name="ArmoryPlayer" type="AnimationPlayer" parent="Tasks/Armory"]
+playback_process_mode = 0
+anims/open = SubResource( 11 )
+
+[node name="Tanks" type="Control" parent="Tasks/Armory"]
+visible = false
+material = ExtResource( 7 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 600.0
+margin_bottom = 600.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="PanelContainer" parent="Tasks/Armory/Tanks"]
+margin_left = 257.0
+margin_top = 18.0
+margin_right = 769.0
+margin_bottom = 530.0
+rect_pivot_offset = Vector2( 256, 256 )
+custom_styles/panel = SubResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fill" type="TextureButton" parent="Tasks/Armory/Tanks"]
+margin_left = 280.0
+margin_top = 440.0
+margin_right = 344.0
+margin_bottom = 504.0
+texture_normal = SubResource( 12 )
+texture_pressed = SubResource( 13 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fill2" type="TextureButton" parent="Tasks/Armory/Tanks"]
+margin_left = 360.0
+margin_top = 440.0
+margin_right = 424.0
+margin_bottom = 504.0
+rect_rotation = 1080.0
+texture_normal = SubResource( 14 )
+texture_pressed = SubResource( 15 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gas" type="ProgressBar" parent="Tasks/Armory/Tanks"]
+margin_left = 520.0
+margin_top = 504.0
+margin_right = 980.0
+margin_bottom = 736.0
+rect_rotation = -90.0
+custom_styles/fg = SubResource( 16 )
+custom_styles/bg = SubResource( 17 )
+value = 50.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Greenhouse" type="Node" parent="Tasks"]
+
+[node name="GreenHPlayer" type="AnimationPlayer" parent="Tasks/Greenhouse"]
+playback_process_mode = 0
+anims/open = SubResource( 18 )
+
+[node name="PlantStats" type="Control" parent="Tasks/Greenhouse"]
+visible = false
+material = ExtResource( 7 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 600.0
+margin_bottom = 600.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="PanelContainer" parent="Tasks/Greenhouse/PlantStats"]
+margin_left = 257.0
+margin_top = 18.0
+margin_right = 769.0
+margin_bottom = 530.0
+rect_pivot_offset = Vector2( 256, 256 )
+custom_styles/panel = SubResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Carbon" type="ProgressBar" parent="Tasks/Greenhouse/PlantStats"]
+margin_left = 328.0
+margin_top = 424.0
+margin_right = 712.0
+margin_bottom = 569.0
+rect_rotation = -90.0
+custom_styles/fg = SubResource( 16 )
+custom_styles/bg = SubResource( 17 )
+value = 50.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Down" type="TextureButton" parent="Tasks/Greenhouse/PlantStats"]
+margin_left = 328.0
+margin_top = 440.0
+margin_right = 392.0
+margin_bottom = 504.0
+texture_normal = SubResource( 12 )
+texture_pressed = SubResource( 13 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Up" type="TextureButton" parent="Tasks/Greenhouse/PlantStats"]
+margin_left = 408.0
+margin_top = 440.0
+margin_right = 472.0
+margin_bottom = 504.0
+rect_rotation = 1080.0
+texture_normal = SubResource( 14 )
+texture_pressed = SubResource( 15 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Water" type="ProgressBar" parent="Tasks/Greenhouse/PlantStats"]
+margin_left = 552.0
+margin_top = 424.0
+margin_right = 936.0
+margin_bottom = 569.0
+rect_rotation = -90.0
+custom_styles/fg = SubResource( 16 )
+custom_styles/bg = SubResource( 17 )
+value = 50.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Down2" type="TextureButton" parent="Tasks/Greenhouse/PlantStats"]
+margin_left = 552.0
+margin_top = 440.0
+margin_right = 616.0
+margin_bottom = 504.0
+texture_normal = SubResource( 12 )
+texture_pressed = SubResource( 13 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Up2" type="TextureButton" parent="Tasks/Greenhouse/PlantStats"]
+margin_left = 632.0
+margin_top = 440.0
+margin_right = 696.0
+margin_bottom = 504.0
+rect_rotation = 1080.0
+texture_normal = SubResource( 14 )
+texture_pressed = SubResource( 15 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CommandNode" type="Node2D" parent="."]
+
+[node name="RangeC" type="Area2D" parent="CommandNode"]
+
+[node name="Shape" type="CollisionShape2D" parent="CommandNode/RangeC"]
+shape = SubResource( 19 )
+
+[node name="ElectricalNode" type="Node2D" parent="."]
+
+[node name="RangeE" type="Area2D" parent="ElectricalNode"]
+
+[node name="Shape" type="CollisionShape2D" parent="ElectricalNode/RangeE"]
+shape = SubResource( 19 )
+
+[node name="ArmoryNode" type="Node2D" parent="."]
+
+[node name="RangeA" type="Area2D" parent="ArmoryNode"]
+
+[node name="Shape" type="CollisionShape2D" parent="ArmoryNode/RangeA"]
+shape = SubResource( 19 )
+
+[node name="GreenhouseNode" type="Node2D" parent="."]
+
+[node name="RangeG" type="Area2D" parent="GreenhouseNode"]
+
+[node name="Shape" type="CollisionShape2D" parent="GreenhouseNode/RangeG"]
+shape = SubResource( 19 )
+
+[connection signal="value_changed" from="Tasks/Electrical/Core/Bar" to="." method="_on_Bar_value_changed"]
+[connection signal="pressed" from="Tasks/Armory/Tanks/Fill" to="." method="_on_Fill_pressed"]
+[connection signal="pressed" from="Tasks/Armory/Tanks/Fill2" to="." method="_on_Fill2_pressed"]
+[connection signal="value_changed" from="Tasks/Armory/Tanks/Gas" to="." method="_on_Gas_value_changed"]
+[connection signal="value_changed" from="Tasks/Greenhouse/PlantStats/Carbon" to="." method="_on_Carbon_value_changed"]
+[connection signal="pressed" from="Tasks/Greenhouse/PlantStats/Down" to="." method="_on_Down_pressed"]
+[connection signal="pressed" from="Tasks/Greenhouse/PlantStats/Up" to="." method="_on_Up_pressed"]
+[connection signal="value_changed" from="Tasks/Greenhouse/PlantStats/Water" to="." method="_on_Water_value_changed"]
+[connection signal="pressed" from="Tasks/Greenhouse/PlantStats/Down2" to="." method="_on_Down2_pressed"]
+[connection signal="pressed" from="Tasks/Greenhouse/PlantStats/Up2" to="." method="_on_Up2_pressed"]
+[connection signal="body_entered" from="CommandNode/RangeC" to="." method="_on_RangeC_body_entered"]
+[connection signal="body_exited" from="CommandNode/RangeC" to="." method="_on_RangeC_body_exited"]
+[connection signal="body_entered" from="ElectricalNode/RangeE" to="." method="_on_RangeE_body_entered"]
+[connection signal="body_exited" from="ElectricalNode/RangeE" to="." method="_on_RangeE_body_exited"]
+[connection signal="body_entered" from="ArmoryNode/RangeA" to="." method="_on_RangeA_body_entered"]
+[connection signal="body_exited" from="ArmoryNode/RangeA" to="." method="_on_RangeA_body_exited"]
+[connection signal="body_entered" from="GreenhouseNode/RangeG" to="." method="_on_RangeG_body_entered"]
+[connection signal="body_exited" from="GreenhouseNode/RangeG" to="." method="_on_RangeG_body_exited"]
