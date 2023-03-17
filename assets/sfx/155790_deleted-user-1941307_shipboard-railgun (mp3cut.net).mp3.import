@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/155790_deleted-user-1941307_shipboard-railgun (mp3cut.net).mp3-61d1bbdf6563e37b42854eb19b9b02e7.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/155790_deleted-user-1941307_shipboard-railgun (mp3cut.net).mp3"
+dest_files=[ "res://.import/155790_deleted-user-1941307_shipboard-railgun (mp3cut.net).mp3-61d1bbdf6563e37b42854eb19b9b02e7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

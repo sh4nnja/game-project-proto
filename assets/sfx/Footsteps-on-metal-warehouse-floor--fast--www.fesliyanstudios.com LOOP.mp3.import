@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Footsteps-on-metal-warehouse-floor--fast--www.fesliyanstudios.com LOOP.mp3-d9a7135fa45336104379f944d41bd90b.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/Footsteps-on-metal-warehouse-floor--fast--www.fesliyanstudios.com LOOP.mp3"
+dest_files=[ "res://.import/Footsteps-on-metal-warehouse-floor--fast--www.fesliyanstudios.com LOOP.mp3-d9a7135fa45336104379f944d41bd90b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

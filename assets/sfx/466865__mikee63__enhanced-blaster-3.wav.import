@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/466865__mikee63__enhanced-blaster-3.wav-e53ade5ed6c1599571dfca3e5db4e62f.sample"
+
+[deps]
+
+source_file="res://assets/sfx/466865__mikee63__enhanced-blaster-3.wav"
+dest_files=[ "res://.import/466865__mikee63__enhanced-blaster-3.wav-e53ade5ed6c1599571dfca3e5db4e62f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
